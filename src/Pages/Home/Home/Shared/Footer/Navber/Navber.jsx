@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Navber = () => {
   return (
@@ -11,14 +12,14 @@ const Navber = () => {
     <div className='flex-none'>
       <ul className='menu menu-horizontal px-1'>
         <li>
-          <div>Home</div>
+          <Link to={'/'}>Home</Link>
         </li>
         <li>
           <div>Product</div>
         </li>
 
         <li>
-          <div>Login</div>
+          <Link to={'/login'} >Login</Link>
         </li>
       </ul>
 
