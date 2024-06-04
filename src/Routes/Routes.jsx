@@ -6,6 +6,8 @@ import Main from "../LayOut/Main";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import Products from "../Components/FeaturedProduct/Products/Products";
+import AddProduct from "../Components/FeaturedProduct/AddProduct/AddProduct";
 
  export const router = createBrowserRouter([
     {
@@ -17,6 +19,15 @@ import Register from "../Pages/Register/Register";
             element:<Home></Home>
         },
         {
+            path:'/Products',
+            element:<Products></Products>
+        },
+        {
+            path:'/AddProduct',
+            element:<AddProduct></AddProduct>
+        },
+
+        {
           path:'/login',
           element:<Login></Login>
         },
@@ -24,6 +35,7 @@ import Register from "../Pages/Register/Register";
           path:'/register',
           element:<Register></Register>
         }
+        
         
       ]
     },
