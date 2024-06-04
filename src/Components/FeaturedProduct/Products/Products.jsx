@@ -8,7 +8,7 @@ const Products = () => {
             <h2>This is all product:{products.length}</h2>   
             {
                 products.length > 0 &&
-                products?.slice(0,2).map(product => <AllProducts
+                products?.map(product => <AllProducts
                 key={product._id}
                 product={product}
                 >
