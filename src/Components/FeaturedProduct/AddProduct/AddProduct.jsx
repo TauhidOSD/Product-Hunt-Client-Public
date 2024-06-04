@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const AddProduct = () => {
 
@@ -32,18 +33,12 @@ const AddProduct = () => {
         }
         console.log(Product);
 
-        fetch('http://localhost:5000/products',{
-          method: 'POST',
-          headers: {
-            'content-type':'application/json'
-          },
-          body: JSON.stringify(Product) 
-
-        })
-        .then(res=>res.json())
-        .then(data => {
+        axios.post("http://localhost:5000/products",Product,
+        )
+        // .then(res =>res.json())
+        .then(data=>{
             console.log(data);
-            if(data?.insertedId){
+            if(data?.data?.insertedId){
                 Swal.fire({
                     title: 'Success!',
                     text: 'User added Successfully',
@@ -52,23 +47,6 @@ const AddProduct = () => {
                   })
             }
         })
-        
-
-
-        // axios.post("https://alternative-project.vercel.app/newQueries",Product,
-        // )
-        // // .then(res =>res.json())
-        // .then(data=>{
-        //     console.log(data);
-        //     if(data?.data?.insertedId){
-        //         Swal.fire({
-        //             title: 'Success!',
-        //             text: 'User added Successfully',
-        //             icon: 'success',
-        //             confirmButtonText: 'Cool'
-        //           })
-        //     }
-        // })
         
     }
 
