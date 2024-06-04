@@ -1,8 +1,19 @@
+import { useLoaderData } from "react-router-dom";
+import AllProducts from "../AllProducts";
 
 const Products = () => {
+    const products =useLoaderData();
     return (
         <div>
-            <h2>This is all product</h2>            
+            <h2>This is all product:{products.length}</h2>   
+            {
+                products.map(product => <AllProducts
+                key={product._id}
+                product={product}
+                >
+
+                </AllProducts>)
+            }         
         </div>
     );
 };

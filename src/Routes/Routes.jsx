@@ -23,12 +23,10 @@ import MyProfile from "../Components/FeaturedProduct/MyProfile/MyProfile";
         },
         {
             path:'/Products',
-            element:<Products></Products>
+            element:<Products></Products>,
+            loader : () => fetch('http://localhost:5000/products')
         },
-        // {
-        //     path:'/AddProduct',
-        //     element:<AddProduct></AddProduct>
-        // },
+        
 
         {
           path:'/login',
