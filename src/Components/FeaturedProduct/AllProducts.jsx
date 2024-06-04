@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
 
 const AllProducts = ({product}) => {
+    console.log(product);
     return (
         <div className="">
            <section className="   bg-white dark:bg-gray-900">
@@ -15,7 +17,10 @@ const AllProducts = ({product}) => {
               <img className="object-cover rounded-full w-14 h-14" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="Robbert" />
 
               <div className="mx-4">
-                <h1 className="font-semibold text-blue-500">Robbert</h1>
+                <Link to={`/home/${product?._id}`}>
+                <h1 className="font-semibold text-blue-500">{product?.P_name}</h1>
+
+                </Link>
                 <span className="text-sm text-gray-500 dark:text-gray-300">CTO, Robert Consultency</span>
               </div>
             </div>

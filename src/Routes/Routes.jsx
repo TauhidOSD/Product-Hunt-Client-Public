@@ -13,6 +13,8 @@ import AddProduct from "../Components/FeaturedProduct/AddProduct/AddProduct";
 import MyProfile from "../Components/FeaturedProduct/MyProfile/MyProfile";
 import FeaturedProduct from "../Components/FeaturedProduct/FeaturedProduct";
 import TrendingProduct from "../Components/FeaturedProduct/TrendingProduct/TrendingProduct";
+import UpdateProduct from "../Components/FeaturedProduct/UpdateProduct/UpdateProduct";
+import Details from "../Components/FeaturedProduct/Details/Details";
 
  export const router = createBrowserRouter([
     {
@@ -46,7 +48,14 @@ import TrendingProduct from "../Components/FeaturedProduct/TrendingProduct/Trend
         {
           path:'/register',
           element:<Register></Register>
+        },
+        {
+          path:'/home/:_id',
+          element:<Details></Details>,
+          loader: () => fetch('http://localhost:5000/products')
+
         }
+       
         
         
       ]
@@ -71,7 +80,15 @@ import TrendingProduct from "../Components/FeaturedProduct/TrendingProduct/Trend
             path:'MyProfile',
             element:<MyProfile></MyProfile>
         
-        }
+        },
+        {
+          
+          path:'update/:id',
+          element:<UpdateProduct></UpdateProduct>,
+          loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+      
+      }
+        
       ]
     }
   ]);
