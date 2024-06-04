@@ -15,7 +15,7 @@ const FeaturedProduct = () => {
   }, []);
 
     return (
-        <div>
+        <div className="">
           <h2>length:{Cards?.length}</h2>
           {
                Cards.length > 0 &&

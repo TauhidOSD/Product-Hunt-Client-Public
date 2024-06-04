@@ -12,6 +12,7 @@ import MyProduct from "../Components/FeaturedProduct/MyProduct/MyProduct";
 import AddProduct from "../Components/FeaturedProduct/AddProduct/AddProduct";
 import MyProfile from "../Components/FeaturedProduct/MyProfile/MyProfile";
 import FeaturedProduct from "../Components/FeaturedProduct/FeaturedProduct";
+import TrendingProduct from "../Components/FeaturedProduct/TrendingProduct/TrendingProduct";
 
  export const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ import FeaturedProduct from "../Components/FeaturedProduct/FeaturedProduct";
             path:'/Featured',
             element:<FeaturedProduct></FeaturedProduct>,
             loader : () => fetch('http://localhost:5000/products')
+        },
+        {
+          path:'/TrendingProduct',
+          element:<TrendingProduct></TrendingProduct>
         },
         
         
