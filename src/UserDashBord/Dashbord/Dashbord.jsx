@@ -9,6 +9,9 @@ const Dashbord = () => {
                    <li> <NavLink to={"/dashboard/AddProduct"}>Add Product</NavLink></li> 
                    <li> <NavLink to={"/dashboard/myProduct"}>My product</NavLink></li> 
                    <li> <NavLink to={"/dashboard/MyProfile"}>My profile</NavLink></li> 
+                   <div className="divider"></div>
+                   <li> <NavLink to={"/"}>Home</NavLink></li> 
+
                 </ul>
             </div>
             <div className="flex-1">

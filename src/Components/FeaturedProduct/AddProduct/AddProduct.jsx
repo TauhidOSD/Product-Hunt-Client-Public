@@ -16,28 +16,34 @@ const AddProduct = () => {
         const OwnerEmail = form.OwnerEmail.value;
         const OwnerImage = form.OwnerImage.value;
         const ProductLink = form.ProductLink.value;
-        const BoycottingReason = form.BoycottingReason.value;
+        // const BoycottingReason = form.BoycottingReason.value;
         
     
-        const Quries = {
+        const Product = {
             P_name,
             Description,
             P_URL,
             OwnerName,
-            BoycottingReason,
+            // BoycottingReason,
             OwnerEmail,
             OwnerImage,
             ProductLink
+            
         }
-        
+        console.log(Product);
 
+        fetch('http://localhost:5000/products',{
+          method: 'POST',
+          headers: {
+            'content-type':'application/json'
+          },
+          body: JSON.stringify(Product) 
 
-        axios.post("https://alternative-project.vercel.app/newQueries",Quries,
-        )
-        // .then(res =>res.json())
-        .then(data=>{
+        })
+        .then(res=>res.json())
+        .then(data => {
             console.log(data);
-            if(data?.data?.insertedId){
+            if(data?.insertedId){
                 Swal.fire({
                     title: 'Success!',
                     text: 'User added Successfully',
@@ -46,6 +52,23 @@ const AddProduct = () => {
                   })
             }
         })
+        
+
+
+        // axios.post("https://alternative-project.vercel.app/newQueries",Product,
+        // )
+        // // .then(res =>res.json())
+        // .then(data=>{
+        //     console.log(data);
+        //     if(data?.data?.insertedId){
+        //         Swal.fire({
+        //             title: 'Success!',
+        //             text: 'User added Successfully',
+        //             icon: 'success',
+        //             confirmButtonText: 'Cool'
+        //           })
+        //     }
+        // })
         
     }
 
