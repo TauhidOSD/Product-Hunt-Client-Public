@@ -119,9 +119,9 @@ const Navber = () => {
       </div>
       <div className="md:hidden navbar bg-base-100 shadow-sm container  mx-auto">
         <div className="flex-1">
-          <Link to="/" className="flex gap-2 items-center">
+          <Link to="/" className="flex  items-center">
             <div onClick={handleThemeControl}>
-              <label className="flex cursor-pointer gap-2">
+              <label className="flex cursor-pointer ">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
@@ -165,6 +165,10 @@ const Navber = () => {
             <li>
               <Link to="/">Home</Link>
             </li>
+            <li>
+            <Link to="/Products">Products</Link>
+            </li>
+
             <li>{/* <Link to="/Queries">Queries</Link> */}</li>
             {!user && (
               <li>
