@@ -1,9 +1,9 @@
 
 const AllProducts = ({product}) => {
     return (
-        <div>
-           <section className="bg-white dark:bg-gray-900">
-      <div className="container px-4 py-4 mx-auto">
+        <div className="">
+           <section className="   bg-white dark:bg-gray-900">
+      <div className="container px-4  mx-auto">
         
         <div className="grid grid-cols-1 gap-8 mx-auto mt-8 lg:grid-cols-1 xl:mt-10 max-w-7xl">
           <div className="p-6 bg-gray-100 rounded-lg dark:bg-gray-800 md:p-8">
