@@ -101,7 +101,7 @@ const Navber = () => {
                   <Link to="/AddProduct">Add Product</Link>
                 </li>
                 <li>
-                  <div>My recommendations </div>
+                 <Link to={"/dashboard"}>DashBoard</Link>
                 </li>
 
                 <li className="mt-2">
@@ -199,7 +199,7 @@ const Navber = () => {
                   <Link to="/AddProduct">Add Product</Link>
                 </li>
                 <li>
-                  <div>My recommendations </div>
+                 <Link to={"/dashboard/myProduct"}>DashBoard</Link>
                 </li>
 
                 <li className="mt-2">

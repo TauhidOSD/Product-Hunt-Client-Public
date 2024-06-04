@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import SweetAlert2 from "react-sweetalert2";
 import { AuthContext } from "../../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const AddProduct = () => {
 
@@ -38,7 +38,7 @@ const AddProduct = () => {
         .then(data=>{
             console.log(data);
             if(data?.data?.insertedId){
-                SweetAlert2.fire({
+                Swal.fire({
                     title: 'Success!',
                     text: 'User added Successfully',
                     icon: 'success',

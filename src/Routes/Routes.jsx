@@ -7,7 +7,10 @@ import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Products from "../Components/FeaturedProduct/Products/Products";
+import Dashbord from "../UserDashBord/Dashbord/Dashbord";
+import MyProduct from "../Components/FeaturedProduct/MyProduct/MyProduct";
 import AddProduct from "../Components/FeaturedProduct/AddProduct/AddProduct";
+import MyProfile from "../Components/FeaturedProduct/MyProfile/MyProfile";
 
  export const router = createBrowserRouter([
     {
@@ -22,10 +25,10 @@ import AddProduct from "../Components/FeaturedProduct/AddProduct/AddProduct";
             path:'/Products',
             element:<Products></Products>
         },
-        {
-            path:'/AddProduct',
-            element:<AddProduct></AddProduct>
-        },
+        // {
+        //     path:'/AddProduct',
+        //     element:<AddProduct></AddProduct>
+        // },
 
         {
           path:'/login',
@@ -39,4 +42,27 @@ import AddProduct from "../Components/FeaturedProduct/AddProduct/AddProduct";
         
       ]
     },
+    {
+      path:'/dashboard',
+      element:<Dashbord></Dashbord>,
+      children:[
+        {
+          path:'myProduct',
+          element:<MyProduct></MyProduct>
+
+        },
+        {
+          
+            path:'AddProduct',
+            element:<AddProduct></AddProduct>
+        
+        },
+        {
+          
+            path:'MyProfile',
+            element:<MyProfile></MyProfile>
+        
+        }
+      ]
+    }
   ]);
