@@ -13,7 +13,7 @@ const AllProducts = ({product}) => {
     };
 
     const handleDislike =() =>{
-        setdisLikes(likes -1);
+        setdisLikes(dislikes -1);
     };
 
 
