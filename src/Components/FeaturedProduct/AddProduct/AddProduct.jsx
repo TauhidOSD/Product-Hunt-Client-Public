@@ -33,7 +33,7 @@ const AddProduct = () => {
         }
         console.log(Product);
 
-        axios.post("http://localhost:5000/products",Product,
+        axios.post("https://product-hunt-server-mu.vercel.app/products",Product,
         )
         // .then(res =>res.json())
         .then(data=>{

@@ -28,12 +28,12 @@ import Details from "../Components/FeaturedProduct/Details/Details";
         {
             path:'/Products',
             element:<Products></Products>,
-            loader : () => fetch('http://localhost:5000/products')
+            loader : () => fetch('https://product-hunt-server-mu.vercel.app/products')
         },
         {
             path:'/Featured',
             element:<FeaturedProduct></FeaturedProduct>,
-            loader : () => fetch('http://localhost:5000/products')
+            loader : () => fetch('https://product-hunt-server-mu.vercel.app/products')
         },
         {
           path:'/TrendingProduct',
@@ -52,7 +52,7 @@ import Details from "../Components/FeaturedProduct/Details/Details";
         {
           path:'/home/:_id',
           element:<Details></Details>,
-          loader: () => fetch('http://localhost:5000/products')
+          loader: () => fetch('https://product-hunt-server-mu.vercel.app/products')
 
         }
        
@@ -85,7 +85,7 @@ import Details from "../Components/FeaturedProduct/Details/Details";
           
           path:'update/:id',
           element:<UpdateProduct></UpdateProduct>,
-          loader: ({params}) => fetch(`http://localhost:5000/products/${params.id}`)
+          loader: ({params}) => fetch(`https://product-hunt-server-mu.vercel.app/products/${params.id}`)
       
       }
         

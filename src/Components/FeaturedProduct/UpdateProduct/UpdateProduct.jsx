@@ -43,7 +43,7 @@ const UpdateProduct = () => {
         
 
 
-        axios.put(`http://localhost:5000/products/${_id}`,Quries,
+        axios.put(`https://product-hunt-server-mu.vercel.app/products/${_id}`,Quries,
         )
         // .then(res =>res.json())
         .then(data=>{

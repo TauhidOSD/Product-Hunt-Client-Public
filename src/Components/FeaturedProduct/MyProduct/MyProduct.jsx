@@ -11,7 +11,7 @@ const MyProduct = () => {
 
     const [Cards, setCards] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/productsbyemail/${user?.email}`)
+    fetch(`https://product-hunt-server-mu.vercel.app/productsbyemail/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setCards(data));
   }, [user]);
@@ -31,7 +31,7 @@ const MyProduct = () => {
       }).then((result) => {
         if (result.isConfirmed) {
         
-        fetch(`http://localhost:5000/products/${_id}`,{
+        fetch(`https://product-hunt-server-mu.vercel.app/products/${_id}`,{
             method: 'DELETE'
         })
         .then(res => res.json())

@@ -7,7 +7,7 @@ const FeaturedProduct = () => {
 
   const [Cards, setCards] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://product-hunt-server-mu.vercel.app/products")
       .then((res) => res.json())
       .then((data) => setCards(data));
   }, []);
