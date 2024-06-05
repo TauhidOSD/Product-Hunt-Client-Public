@@ -61,7 +61,7 @@ const UpdateProduct = () => {
     }
     return (
         <div className="bg-[#F4F3F0] p-4 md:p-24">
-        <h2 className="text-3xl font-extrabold text-center my-6">Update Product:{P_name}</h2>
+        <h2 className="text-3xl font-extrabold text-center my-6">Update Product</h2>
         <form onSubmit={handleUpdate}>
           {/*image and sportName */}
           <div className="md:flex mb-6">
@@ -184,7 +184,7 @@ const UpdateProduct = () => {
   
           <input
             type="submit"
-            value="Please Add  "
+            value="Please Update "
             className="btn btn-block bg-slate-700 text-white font-bold text-xl"
           />
         </form>

@@ -11,10 +11,11 @@ const MyProduct = () => {
 
     const [Cards, setCards] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch(`http://localhost:5000/productsbyemail/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setCards(data));
-  }, []);
+  }, [user]);
+  console.log(user);
   console.log(Cards._id);
   
   const handleDelete = _id =>{
