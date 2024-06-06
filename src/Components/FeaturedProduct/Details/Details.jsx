@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { BiSolidDislike, BiSolidLike } from "react-icons/bi";
 
 const Details = () => {
 
@@ -64,9 +65,22 @@ const Details = () => {
 }
 
 
+const [likes, setLikes]=useState(0);
+    const [dislikes, setdisLikes]=useState(0);
+
+    const handleLike =()=> {
+        setLikes(likes+1);
+    };
+
+    const handleDislike =() =>{
+        setdisLikes(dislikes +1);
+    };
+
+
     return (
        <div>
          <div className='flex flex-col md:flex-row justify-around gap-5  items-center min-h-[calc(100vh-306px)] md:max-w-screen-xl mx-auto '>
+
       {/* Job Details */}
       <div className="flex w-1/2 " >
       <div className='flex-1  px-4 py-7 bg-white rounded-md shadow-md md:min-h-[350px]'>
@@ -111,6 +125,18 @@ const Details = () => {
             <div className="">
         <img className="text-start h-[100px] w-[120px] mt-6 md:  md:h-[200px] md:w-[250px]" src={product?.P_URL} alt="" />
 
+        <div className="flex mt-4 md:justify-center gap-4"> 
+             <span className="flex items-center cursor-pointer" onClick={handleLike} ><BiSolidLike />
+             <span className="ml-1">{likes}</span>
+             </span>
+             
+             <span className="flex items-center cursor-pointer" onClick={handleDislike} ><BiSolidDislike />
+             
+             <span className="ml-1">{dislikes}</span>
+             
+              </span>
+             </div>
+
         </div>
 
           </div>
@@ -118,7 +144,7 @@ const Details = () => {
         
       </div>
       
-
+     
         
 
       </div>
