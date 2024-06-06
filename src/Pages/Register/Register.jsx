@@ -59,8 +59,23 @@ const Register = () => {
       const handleGoogleSignup= async()=>{
           try{
            await  signInWithGoogle()
-           toast.success('Signin Successfull');
+
+          // const userInfor ={
+          //   email:user?.email,
+          //   name:user?.name
+          // }
+
+          // axiosPublic.post('/users',userInfor)
+          // .then(res => {
+          //   console.log(res.data);
+            
+            
+          // })
+          toast.success('Signin Successfull');
            navigate('/')
+          
+
+           
           } catch (err){
           //  console.log(err);
            toast.error(err?.message)
