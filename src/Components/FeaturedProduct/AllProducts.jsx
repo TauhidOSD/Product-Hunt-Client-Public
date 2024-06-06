@@ -13,7 +13,7 @@ const AllProducts = ({product}) => {
     };
 
     const handleDislike =() =>{
-        setdisLikes(dislikes -1);
+        setdisLikes(dislikes +1);
     };
 
 
@@ -30,14 +30,14 @@ const AllProducts = ({product}) => {
             </p>
 
             <div className="flex items-center mt-6">
-              <img className="object-cover rounded-full w-16 h-16" src={product?.P_URL} alt="Robbert" />
+              <img className="object-cover  w-32 h-32" src={product?.P_URL} alt="Robbert" />
 
               <div className="mx-4">
                 <Link to={`/home/${product?._id}`}>
                 <h1 className="font-semibold text-blue-500">{product?.P_name}</h1>
 
                 </Link>
-                <span className="text-sm text-gray-500 dark:text-gray-300">{product?.ProductLink}</span>
+                {/* <span className="text-sm w-3/1 text-gray-500 dark:text-gray-300">{product?.ProductLink}</span> */}
                 <div className="flex gap-4"> 
              <span className="flex items-center cursor-pointer" onClick={handleLike} ><BiSolidLike />
              <span className="ml-1">{likes}</span>

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 const AddProduct = () => {
 
@@ -45,7 +46,9 @@ const AddProduct = () => {
                     icon: 'success',
                     confirmButtonText: 'Cool'
                   })
+                  
             }
+            // <Navigate to={'myProduct'}></Navigate>
         })
         
     }

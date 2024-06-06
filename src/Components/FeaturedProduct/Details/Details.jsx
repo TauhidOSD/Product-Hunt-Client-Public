@@ -68,7 +68,7 @@ const Details = () => {
        <div>
          <div className='flex flex-col md:flex-row justify-around gap-5  items-center min-h-[calc(100vh-306px)] md:max-w-screen-xl mx-auto '>
       {/* Job Details */}
-      <div className="flex " >
+      <div className="flex w-1/2 " >
       <div className='flex-1  px-4 py-7 bg-white rounded-md shadow-md md:min-h-[350px]'>
         <div className='flex items-center justify-between'>
           <span className='text-sm font-light text-gray-800 '>
@@ -85,7 +85,9 @@ const Details = () => {
           <p className='mt-2 text-lg text-gray-600 '>
             {product?.Description}
           </p>
-          <p className='mt-6 text-sm font-bold text-gray-600 '>
+          <div className="md:flex justify-between">
+            <div>
+            <p className='mt-6 text-sm font-bold text-gray-600 '>
             Buyer Details:
           </p>
           <div className='flex items-center gap-5'>
@@ -99,14 +101,23 @@ const Details = () => {
               <img src='' alt='' />
             </div>
           </div>
-          <img className="text-start h-[80px] w-[120px]" src={product?.OwnerImage} alt="" />
+          <div className="md:flex  justify-between ">
+          <div>
+          <img className="text-start h-[100px] w-[120px]" src={product?.OwnerImage} alt="" />
+          </div>
+         
+          </div>
+            </div>
+            <div className="">
+        <img className="text-start h-[100px] w-[120px] mt-6 md:  md:h-[200px] md:w-[250px]" src={product?.P_URL} alt="" />
+
+        </div>
+
+          </div>
         </div>
         
       </div>
-      <div className="">
-        <img className="text-start h-[360px] w-[350px]" src={product?.P_URL} alt="" />
-
-        </div>
+      
 
         
 
