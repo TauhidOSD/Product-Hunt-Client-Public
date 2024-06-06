@@ -48,14 +48,7 @@ const MyProduct = () => {
         }
       });
   }
-
-// 
-
-
-
- 
-
-    return (
+ return (
         <div>
             <section>
         {Cards.map((Card) => (
@@ -84,7 +77,7 @@ const MyProduct = () => {
                       <div className="avatar">
                         <div className="rounded-xl w-[156px] h-[156px]">
                           <img
-                            src=""
+                            src={Card?.P_URL}
                             alt="Avatar Tailwind CSS Component"
                           />
                         </div>
@@ -96,19 +89,21 @@ const MyProduct = () => {
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
                           <img
-                            src=""
+                     src={user?.photoURL
+                               
+                                }
                             alt="Avatar Tailwind CSS Component"
                           />
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold">display</div>
-                        <div className="text-sm opacity-50">email</div>
+                        <div className="font-bold">{user?.displayName}</div>
+                        <div className="text-sm opacity-50">{user?.email}</div>
                       </div>
                     </div>
                   </td>
 
-                  <td>product name</td>
+                  <td>{Card?.P_name}</td>
                   <th>
                     <button className="btn btn-ghost btn-xs">
                       Product Brand

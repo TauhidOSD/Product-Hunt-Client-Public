@@ -3,7 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 const Dashbord = () => {
     return (
         <div className="flex">
-            <div className="w-64 min-h-full bg-slate-400">
+            <div className="w-64 min-h-screen bg-slate-400">
                 <ul className="menu">
                    <li> <NavLink to={"/dashboard/userHome"}>User Home</NavLink></li> 
                    <li> <NavLink to={"/dashboard/AddProduct"}>Add Product</NavLink></li> 
