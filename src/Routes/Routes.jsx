@@ -15,11 +15,13 @@ import FeaturedProduct from "../Components/FeaturedProduct/FeaturedProduct";
 import TrendingProduct from "../Components/FeaturedProduct/TrendingProduct/TrendingProduct";
 import UpdateProduct from "../Components/FeaturedProduct/UpdateProduct/UpdateProduct";
 import Details from "../Components/FeaturedProduct/Details/Details";
+import NotFoundPage from "../Components/FeaturedProduct/NotFoundPage/NotFoundPage";
 
  export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main>,
+      errorElement:<NotFoundPage></NotFoundPage>,
       children:[
         {
             path:'/',
