@@ -17,6 +17,7 @@ import UpdateProduct from "../Components/FeaturedProduct/UpdateProduct/UpdatePro
 import Details from "../Components/FeaturedProduct/Details/Details";
 import NotFoundPage from "../Components/FeaturedProduct/NotFoundPage/NotFoundPage";
 import PrivateRoute from "../Components/FeaturedProduct/PrivateRoute/PrivateRoute";
+import ManageUsers from "../UserDashBord/Dashbord/ManageUsers/ManageUsers";
 
  export const router = createBrowserRouter([
     {
@@ -94,6 +95,11 @@ import PrivateRoute from "../Components/FeaturedProduct/PrivateRoute/PrivateRout
           element:<UpdateProduct></UpdateProduct>,
           loader: ({params}) => fetch(`https://product-hunt-server-mu.vercel.app/products/${params.id}`)
       
+      },
+      //admin routes
+      {
+        path:'ManageUsers',
+        element:<ManageUsers></ManageUsers>
       }
         
       ]

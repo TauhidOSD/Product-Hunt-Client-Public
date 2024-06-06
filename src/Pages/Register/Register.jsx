@@ -2,8 +2,11 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../provider/AuthProvider";
+import useAxiosPublic from "../../hooks/useAsiosSecure/useAxiosPublic";
 
 const Register = () => {
+
+  const axiosPublic =useAxiosPublic();
 
     const navigate = useNavigate();
     const { user, setUser, createUser, signInWithGoogle, updateUserProfile } =
@@ -25,9 +28,26 @@ const Register = () => {
            
            await updateUserProfile(name,photo)
            setUser({...user,photoURL:photo,displayName:name})
-          //  navigate('/')
+          //  create user entry in the database
+
+            const userInfo ={
+              name:name,
+              email:email
+            }
+
+          axiosPublic.post('/users',userInfo)
+          .then(res =>{
+            if(res.data.insertedId){
+
+              console.log('user added to the dataBase')
+
+              toast.success('SignUp Successful')
+
+
+            }
+          })
+
   
-           toast.success('SignUp Successful')
           }catch(err){
           //  console.log(err)
            toast.error(err?.message)
