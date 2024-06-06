@@ -16,6 +16,7 @@ import TrendingProduct from "../Components/FeaturedProduct/TrendingProduct/Trend
 import UpdateProduct from "../Components/FeaturedProduct/UpdateProduct/UpdateProduct";
 import Details from "../Components/FeaturedProduct/Details/Details";
 import NotFoundPage from "../Components/FeaturedProduct/NotFoundPage/NotFoundPage";
+import PrivateRoute from "../Components/FeaturedProduct/PrivateRoute/PrivateRoute";
 
  export const router = createBrowserRouter([
     {
@@ -53,7 +54,9 @@ import NotFoundPage from "../Components/FeaturedProduct/NotFoundPage/NotFoundPag
         },
         {
           path:'/home/:_id',
-          element:<Details></Details>,
+          element:<PrivateRoute>
+            <Details></Details>,
+          </PrivateRoute>,
           loader: () => fetch('https://product-hunt-server-mu.vercel.app/products')
 
         }
@@ -64,7 +67,9 @@ import NotFoundPage from "../Components/FeaturedProduct/NotFoundPage/NotFoundPag
     },
     {
       path:'/dashboard',
-      element:<Dashbord></Dashbord>,
+      element:<PrivateRoute>
+        <Dashbord></Dashbord>,
+      </PrivateRoute>,
       children:[
         {
           path:'myProduct',

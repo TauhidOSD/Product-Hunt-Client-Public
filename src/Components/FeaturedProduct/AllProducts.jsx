@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { BiSolidDislike, BiSolidLike } from "react-icons/bi";
 import { useState } from "react";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const AllProducts = ({product}) => {
     console.log(product);
@@ -39,9 +40,11 @@ const AllProducts = ({product}) => {
                 </Link>
                 {/* <span className="text-sm w-3/1 text-gray-500 dark:text-gray-300">{product?.ProductLink}</span> */}
                 <div className="flex gap-4"> 
-             <span className="flex items-center cursor-pointer" onClick={handleLike} ><BiSolidLike />
+           
+            <span className="flex items-center cursor-pointer" onClick={handleLike} ><BiSolidLike />
              <span className="ml-1">{likes}</span>
              </span>
+            
              
              <span className="flex items-center cursor-pointer" onClick={handleDislike} ><BiSolidDislike />
              
