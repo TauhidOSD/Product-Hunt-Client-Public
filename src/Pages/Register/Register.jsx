@@ -60,19 +60,19 @@ const Register = () => {
           try{
            await  signInWithGoogle()
 
-          // const userInfor ={
-          //   email:user?.email,
-          //   name:user?.name
-          // }
+          const userInfor ={
+            email:user?.email,
+            name:user?.displayName
+          }
 
-          // axiosPublic.post('/users',userInfor)
-          // .then(res => {
-          //   console.log(res.data);
-            
-            
-          // })
-          toast.success('Signin Successfull');
+          axiosPublic.post('/users',userInfor)
+          .then(res => {
+            console.log(res.data);
+            toast.success('Signin Successfull');
            navigate('/')
+            
+          })
+          
           
 
            
