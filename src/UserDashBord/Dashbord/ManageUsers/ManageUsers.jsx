@@ -4,20 +4,17 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure/useAxiosSecure";
 
 const ManageUsers = () => {
+
     const axiosSecure = useAxiosSecure();
     const [cards, setCards] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/users")
-            .then((res) => {
-                if (!res.ok) {
-                    throw new Error(`HTTP error! status: ${res.status}`);
-                }
-                return res.json();
-            })
+        axiosSecure.get("/users")
+            
             .then((data) => {
-                if (Array.isArray(data)) {
-                    setCards(data);
+                console.log(data.data);
+                if (Array.isArray(data.data)) {
+                    setCards(data.data);
                 } else {
                     throw new Error('Fetched data is not an array');
                 }
