@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
-import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const UpdateProduct = () => {

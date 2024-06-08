@@ -3,8 +3,11 @@ import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
+import useAxiosSecure from "../../../hooks/useAxiosSecure/useAxiosSecure";
 
 const AddProduct = () => {
+  const axiosSecure = useAxiosSecure();
+
 
     const {user } = useContext(AuthContext)
     const handleAddPlace = (event) => {
@@ -34,7 +37,7 @@ const AddProduct = () => {
         }
         console.log(Product);
 
-        axios.post("https://product-hunt-server-mu.vercel.app/products",Product,
+        axiosSecure.post("/products",Product,
         )
         // .then(res =>res.json())
         .then(data=>{
