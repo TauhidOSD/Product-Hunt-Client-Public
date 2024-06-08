@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const UpdateProduct = () => {
     const {user } = useContext(AuthContext)
