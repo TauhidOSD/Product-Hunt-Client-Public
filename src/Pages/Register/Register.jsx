@@ -11,6 +11,7 @@ const Register = () => {
     const navigate = useNavigate();
     const { user, setUser, createUser, signInWithGoogle, updateUserProfile } =
       useContext(AuthContext);
+    
   
        //email password signin
        const handleSignUp=async e=>{

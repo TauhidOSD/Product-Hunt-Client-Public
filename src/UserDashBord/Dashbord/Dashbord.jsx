@@ -4,9 +4,12 @@ import { FaHome, FaUsers } from "react-icons/fa";
 import { MdAddBusiness, MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
 
 const Dashboard = () => {
-  // const userRole = 'admin';
+  const axiosSecure = useAxiosSecure();
+
+  
   const{user}=useContext(AuthContext);
   console.log(user);
 
@@ -15,11 +18,11 @@ const Dashboard = () => {
   const [isModerator, setIsModerator] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    axiosSecure.get("/users")
     
-      .then((res) => res.json())
+      
       .then((data) => {
-        const currentUser = data.find(u => u.email === user?.email);
+        const currentUser = data.data.find(u => u.email === user?.email);
         setIsAdmin(currentUser?.role === 'admin');
         setIsModerator(currentUser?.role === 'moderator');
        setLoading(false)
