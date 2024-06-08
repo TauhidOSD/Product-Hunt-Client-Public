@@ -11,8 +11,8 @@ const FeaturedProduct = () => {
 
   const [Cards, setCards] = useState([]);
   useEffect(() => {
-    axiosSecure.get("/products")
-      // .then((res) => res.json())
+    fetch("https://product-hunt-server-mu.vercel.app/products")
+      .then((res) => res.json())
       .then((data) => setCards(data));
   }, []);
 
@@ -33,9 +33,9 @@ const FeaturedProduct = () => {
       </div>
 
       <div className="grid md:grid-cols-2 grid-cols-1">
-      {Cards.length > 0 &&
+      {Cards?.length > 0 &&
         Cards?.slice(0, 4).map((Card) => (
-          <AllProducts key={Card._id} product={Card}></AllProducts>
+          <AllProducts key={Card?._id} product={Card}></AllProducts>
         ))}
       </div>
     </div>

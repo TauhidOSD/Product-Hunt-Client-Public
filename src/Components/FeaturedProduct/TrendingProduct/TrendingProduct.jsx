@@ -30,7 +30,7 @@ const TrendingProduct = () => {
       </div>
 
       <div className="grid md:grid-cols-2 grid-cols-1">
-      {Cards.length > 0 &&
+      {Cards?.length > 0 &&
         Cards?.slice(0, 6).map((Card) => (
           <AllProducts key={Card._id} product={Card}></AllProducts>
         ))}
