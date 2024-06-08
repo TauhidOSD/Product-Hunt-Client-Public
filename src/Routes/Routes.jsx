@@ -18,6 +18,8 @@ import Details from "../Components/FeaturedProduct/Details/Details";
 import NotFoundPage from "../Components/FeaturedProduct/NotFoundPage/NotFoundPage";
 import PrivateRoute from "../Components/FeaturedProduct/PrivateRoute/PrivateRoute";
 import ManageUsers from "../UserDashBord/Dashbord/ManageUsers/ManageUsers";
+import UserHome from "../UserDashBord/Dashbord/UserHome/UserHome";
+import AminHome from "../UserDashBord/Dashbord/AdminDashBoad/AminHome/AminHome";
 
  export const router = createBrowserRouter([
     {
@@ -72,6 +74,12 @@ import ManageUsers from "../UserDashBord/Dashbord/ManageUsers/ManageUsers";
         <Dashbord></Dashbord>,
       </PrivateRoute>,
       children:[
+
+        {
+
+          path:'userHome',
+          element:<UserHome></UserHome>
+        },
         {
           path:'myProduct',
           element:<MyProduct></MyProduct>
@@ -97,6 +105,13 @@ import ManageUsers from "../UserDashBord/Dashbord/ManageUsers/ManageUsers";
       
       },
       //admin routes
+
+      {
+
+        path:'adminHome',
+        element:<AminHome></AminHome>
+      },
+
       {
         path:'ManageUsers',
         element:<ManageUsers></ManageUsers>

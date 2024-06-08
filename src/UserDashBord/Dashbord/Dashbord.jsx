@@ -1,16 +1,42 @@
+import { useContext, useEffect, useState } from "react";
 import { AiFillProfile } from "react-icons/ai";
 import { FaHome, FaUsers } from "react-icons/fa";
 import { MdAddBusiness, MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Dashboard = () => {
-  const userRole = 'admin'; // Replace with logic to get the user role
+  // const userRole = 'admin';
+  const{user}=useContext(AuthContext);
+  console.log(user);
+
+  const [loading, setLoading] = useState()
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isModerator, setIsModerator] = useState(false);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/users")
+    
+      .then((res) => res.json())
+      .then((data) => {
+        const currentUser = data.find(u => u.email === user?.email);
+        setIsAdmin(currentUser?.role === 'admin');
+        setIsModerator(currentUser?.role === 'moderator');
+       setLoading(false)
+      })
+      .catch((error) => console.error("Error fetching users:", error));
+      setLoading(false)
+  }, [user]);
+  if (loading) {
+    return <div>Loading...</div>;
+}
+   // Replace with logic to get the user role
 
   return (
     <div className="flex">
       <div className="w-64 min-h-screen bg-slate-400">
         <ul className="menu">
-          {userRole === 'admin' ? (
+          {isAdmin ? (
             <>
               <li>
                 <NavLink to="/dashboard/adminHome">
@@ -29,11 +55,11 @@ const Dashboard = () => {
               </li>
               <li>
                 <NavLink to="/dashboard/manageUsers">
-                  <FaUsers /> Manage Users
+                  <FaUsers /> Manage Usersr
                 </NavLink>
               </li>
             </>
-          ) : userRole === 'moderator' ? (
+          ) : isModerator  ? (
             <>
               <li>
                 <NavLink to="/dashboard/productReviewQueue">

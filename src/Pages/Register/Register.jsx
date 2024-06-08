@@ -19,6 +19,8 @@ const Register = () => {
           const email=form.email.value
           const name=form.name.value
           const photo=form.photo.value
+          const role ="user"
+          
   
           const pass=form.password.value
           // console.log({email,pass,name,photo})
@@ -32,7 +34,8 @@ const Register = () => {
 
             const userInfo ={
               name:name,
-              email:email
+              email:email,
+              role
             }
 
           axiosPublic.post('/users',userInfo)
