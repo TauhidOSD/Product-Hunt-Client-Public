@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import AllProducts from "../AllProducts";
+import { key } from "localforage";
 
 const Products = () => {
   const products = useLoaderData();
@@ -20,9 +21,11 @@ const Products = () => {
       </div>
 
      <div className="grid md:grid-cols-2 grid-cols-1 mb-10">
-     {products.length > 0 &&
-        products?.map((product) => (
-          <AllProducts key={product._id} product={product}></AllProducts>
+     {
+      
+     products?.data?.length > 0 &&
+        products?.data?.map((product) => (
+          <AllProducts key={product?.data?._id} product={product}></AllProducts>
         ))}
      </div>
     </div>

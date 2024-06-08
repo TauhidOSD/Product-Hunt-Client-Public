@@ -11,9 +11,9 @@ const FeaturedProduct = () => {
 
   const [Cards, setCards] = useState([]);
   useEffect(() => {
-    fetch("https://product-hunt-server-mu.vercel.app/products")
-      .then((res) => res.json())
-      .then((data) => setCards(data));
+    axiosSecure.get("/products")
+      // .then((res) => res.json())
+      .then((data) => setCards(data?.data));
   }, []);
 
   return (

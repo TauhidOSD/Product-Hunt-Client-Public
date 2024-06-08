@@ -22,7 +22,7 @@ const Dashboard = () => {
     
       
       .then((data) => {
-        const currentUser = data.data.find(u => u.email === user?.email);
+        const currentUser = data?.data?.find(u => u.email === user?.email);
         setIsAdmin(currentUser?.role === 'admin');
         setIsModerator(currentUser?.role === 'moderator');
        setLoading(false)

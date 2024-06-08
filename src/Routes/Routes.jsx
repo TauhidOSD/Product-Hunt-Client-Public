@@ -20,6 +20,9 @@ import PrivateRoute from "../Components/FeaturedProduct/PrivateRoute/PrivateRout
 import ManageUsers from "../UserDashBord/Dashbord/ManageUsers/ManageUsers";
 import UserHome from "../UserDashBord/Dashbord/UserHome/UserHome";
 import AminHome from "../UserDashBord/Dashbord/AdminDashBoad/AminHome/AminHome";
+import useAxiosSecure from "../hooks/useAxiosSecure/useAxiosSecure";
+
+const axiosSecure = useAxiosSecure();
 
  export const router = createBrowserRouter([
     {
@@ -34,12 +37,12 @@ import AminHome from "../UserDashBord/Dashbord/AdminDashBoad/AminHome/AminHome";
         {
             path:'/Products',
             element:<Products></Products>,
-            loader : () => fetch('https://product-hunt-server-mu.vercel.app/products')
+            loader : () => axiosSecure ('/products')
         },
         {
             path:'/Featured',
             element:<FeaturedProduct></FeaturedProduct>,
-            loader : () => fetch('https://product-hunt-server-mu.vercel.app/products')
+            loader : () => axiosSecure('/products')
         },
         {
           path:'/TrendingProduct',
@@ -60,7 +63,7 @@ import AminHome from "../UserDashBord/Dashbord/AdminDashBoad/AminHome/AminHome";
           element:<PrivateRoute>
             <Details></Details>,
           </PrivateRoute>,
-          loader: () => fetch('https://product-hunt-server-mu.vercel.app/products')
+          loader: () => axiosSecure ('/products')
 
         }
        

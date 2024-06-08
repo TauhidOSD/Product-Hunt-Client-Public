@@ -4,8 +4,11 @@ import { useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../provider/AuthProvider";
 import { BiSolidDislike, BiSolidLike } from "react-icons/bi";
+import useAxiosSecure from "../../../hooks/useAxiosSecure/useAxiosSecure";
 
 const Details = () => {
+
+  const axiosSecure = useAxiosSecure();
 
    const {user}=useContext(AuthContext);
   const [product, setProduct] = useState({});
@@ -14,16 +17,16 @@ const Details = () => {
   console.log(product);
 
   useEffect(() => {
-    const findCart = details?.find((item) => item._id === _id);
+    const findCart = details?.data?.find((item) => item._id === _id);
 
     setProduct(findCart);
   }, [_id, details]);
 
   const [Cards, setCards] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/review")
-      .then((res) => res.json())
-      .then((data) => setCards(data));
+    axiosSecure.get("/review")
+      // .then((res) => res.json())
+      .then((data) => setCards(data?.data));
   }, []);
     
 
@@ -47,7 +50,7 @@ const Details = () => {
     }
     console.log(review);
 
-    axios.post("http://localhost:5000/review",review,
+    axiosSecure.post("/review",review,
 )
 // .then(res =>res.json())
 .then(data=>{
