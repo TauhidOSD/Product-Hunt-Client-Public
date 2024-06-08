@@ -25,7 +25,8 @@ const Products = () => {
       
      products?.data?.length > 0 &&
         products?.data?.map((product) => (
-          <AllProducts key={product?.data?._id} product={product}></AllProducts>
+          
+          <AllProducts key={product?._id} product={product}></AllProducts>
         ))}
      </div>
     </div>
