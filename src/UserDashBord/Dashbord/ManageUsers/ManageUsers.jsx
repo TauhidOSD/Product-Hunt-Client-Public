@@ -44,6 +44,26 @@ const ManageUsers = () => {
                 console.error('Error making user admin:', error);
             });
     };
+    const handleMakeModerator = (user) => {
+        axiosSecure.patch(`/users/moderator/${user._id}`)
+            .then(res => {
+                console.log(res.data)
+                if (res.data.modifiedCount > 0) {
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user.name} is an Moderator Now`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    // Update the user role in the local state
+                    setCards(cards.map(card => card._id === user._id ? { ...card, role: 'moderator' } : card));
+                }
+            })
+            .catch(error => {
+                console.error('Error making user moderator:', error);
+            });
+    };
 
     return (
         <div>
@@ -57,6 +77,7 @@ const ManageUsers = () => {
                             <th>Useremail</th>
                             <th>MakeModerator</th>
                             <th>MakeAdmin</th>
+                            <th>MakeModerator</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,6 +90,14 @@ const ManageUsers = () => {
                                 <td>
                                     {card.role === 'admin' ? 'Admin' :
                                         <button onClick={() => handleMakeAdmin(card)} className="btn btn-sm bg-orange-500">
+                                            <FaUser className="text-white text-xl" />
+                                        </button>
+                                    }  
+                                    
+                                </td>
+                                <td>
+                                    {card.role === 'moderator' ? 'Moderator' :
+                                        <button onClick={() => handleMakeModerator(card)} className="btn btn-sm bg-orange-500">
                                             <FaUser className="text-white text-xl" />
                                         </button>
                                     }
