@@ -1,14 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import AllProducts from "./AllProducts";
+import useAxiosSecure from "../../hooks/useAxiosSecure/useAxiosSecure";
 
 const FeaturedProduct = () => {
+  
   const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
+
 
   const [Cards, setCards] = useState([]);
   useEffect(() => {
-    fetch("https://product-hunt-server-mu.vercel.app/products")
-      .then((res) => res.json())
+    axiosSecure.get("/products")
+      // .then((res) => res.json())
       .then((data) => setCards(data));
   }, []);
 
