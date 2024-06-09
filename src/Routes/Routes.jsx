@@ -23,6 +23,7 @@ import AminHome from "../UserDashBord/Dashbord/AdminDashBoad/AminHome/AminHome";
 import useAxiosSecure from "../hooks/useAxiosSecure/useAxiosSecure";
 import Review from "../Components/FeaturedProduct/ModeratorDashBoard/Review/Review";
 import Statistics from "../UserDashBord/Dashbord/AdminDashBoad/AminHome/Statistics/Statistics";
+import ReportedContents from "../UserDashBord/Dashbord/Moderator/revievew/eportedContents/PortedContents/ReportedContents/ReportedContents";
 
 const axiosSecure = useAxiosSecure();
 
@@ -131,6 +132,10 @@ const axiosSecure = useAxiosSecure();
       {
         path:'productReviewQueue',
         element:<Review></Review>
+      },
+      {
+        path:'reportedContents',
+        element:<ReportedContents></ReportedContents>
       }
         
       ]
