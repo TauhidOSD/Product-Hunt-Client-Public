@@ -13,8 +13,8 @@ const ManageUsers = () => {
             
             .then((data) => {
                 console.log(data.data);
-                if (Array.isArray(data.data)) {
-                    setCards(data.data);
+                if (Array.isArray(data?.data)) {
+                    setCards(data?.data);
                 } else {
                     throw new Error('Fetched data is not an array');
                 }
