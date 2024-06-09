@@ -62,7 +62,9 @@ const axiosSecure = useAxiosSecure();
         },
         {
           path:'/home/:_id',
+         
           element:<PrivateRoute>
+            
             <Details></Details>,
           </PrivateRoute>,
           loader: () => axiosSecure ('/products')
