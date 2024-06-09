@@ -21,6 +21,8 @@ import ManageUsers from "../UserDashBord/Dashbord/ManageUsers/ManageUsers";
 import UserHome from "../UserDashBord/Dashbord/UserHome/UserHome";
 import AminHome from "../UserDashBord/Dashbord/AdminDashBoad/AminHome/AminHome";
 import useAxiosSecure from "../hooks/useAxiosSecure/useAxiosSecure";
+import { PiAtThin } from "react-icons/pi";
+import Review from "../Components/FeaturedProduct/ModeratorDashBoard/Review/Review";
 
 const axiosSecure = useAxiosSecure();
 
@@ -118,6 +120,11 @@ const axiosSecure = useAxiosSecure();
       {
         path:'ManageUsers',
         element:<ManageUsers></ManageUsers>
+      },
+      //moderator
+      {
+        path:'productReviewQueue',
+        element:<Review></Review>
       }
         
       ]
