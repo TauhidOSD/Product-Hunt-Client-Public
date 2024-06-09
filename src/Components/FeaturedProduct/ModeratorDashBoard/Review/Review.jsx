@@ -40,7 +40,7 @@ const Review = () => {
                       <th></th>
                       <th>ProductName</th>
                       <th>ProductDetails</th>
-                      <th>Favorite Color</th>
+                      <th>Featured</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -49,7 +49,8 @@ const Review = () => {
                       <th>{index + 1}</th>
                       <td>{card?.P_name}</td>
                       <td><Link to={'/home/:_id'} ><button className="btn">Details</button> </Link></td>
-                      <td>Blue</td>
+                      <td><Link to={'/Featured'}><button className="btn btn-active">Featured</button>
+                      </Link></td>
                     </tr>
                    
                     
